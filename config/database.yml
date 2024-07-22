@@ -22,7 +22,8 @@ default: &default
 development:
   <<: *default
   database: spree_starter_development
-  host: localhost
+  # host: localhost
+  host: postgres
   username: postgres
 
   # The specified database role being used to connect to PostgreSQL.

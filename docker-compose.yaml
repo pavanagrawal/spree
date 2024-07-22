@@ -14,6 +14,20 @@ services:
       - "6379:6379"
     volumes:
       - 'redis:/data'
+  spree_backend:
+    tty: true
+    stdin_open: true
+    image: spree_backend:development
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    volumes:
+      - .:/rails
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "3000:3000"
 
 volumes:
   redis:
